@@ -1,13 +1,9 @@
 <template>
-  <main-page></main-page>
+  <router-view />
 </template>
 
 <script>
-import MainPage from "./views/MainPage.vue";
-
-export default {
-  components: { MainPage },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -20,5 +16,6 @@ export default {
 body {
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
+  margin: 0;
 }
 </style>

@@ -2,10 +2,10 @@
   <div class="main">
     <my-control-area></my-control-area>
     <my-content-area
-      v-for="task in tasks"
-      :key="task"
-      :title="task.title"
-      :id="task.id"
+      v-for="item in items"
+      :key="item"
+      :title="item.title"
+      :id="item.id"
     ></my-content-area>
   </div>
 </template>
@@ -16,14 +16,10 @@ import MyControlArea from "../components/MyControlArea.vue";
 export default {
   name: "MainPage",
   components: { MyContentArea, MyControlArea },
-  data() {
-    return {
-      tasks: [
-        { id: 1, title: "some test title" },
-        { id: 2, title: "some test title" },
-        { id: 3, title: "some test title" },
-      ],
-    };
+  computed: {
+    items() {
+      return this.$store.state?.data || [];
+    },
   },
 };
 </script>
@@ -34,6 +30,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  padding: 0 15px;
   max-width: 800px;
 }
 </style>
